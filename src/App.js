@@ -1,9 +1,12 @@
 import './styles/global.css';
+import { BrowserRouter } from 'react-router-dom';
+
+import Routes from './routes';
 
 export function App() {
   return (
-    <div className="App">
-      <h1>Estrutura inicial</h1>
-    </div>
+    <BrowserRouter>
+      <Routes />
+    </BrowserRouter>
   );
 }
