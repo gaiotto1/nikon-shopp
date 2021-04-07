@@ -1,0 +1,104 @@
+.productContainer {
+  width: 100%;
+  margin-top: 60px;
+}
+
+.productContent {
+  position: relative;
+  width: 100%;
+  max-width: 1120px;
+  padding: 0px 20px;
+  margin: 0 auto;
+
+  .containerImage {
+    width: 40%;
+    text-align: center;
+    float: left;
+
+    img {
+      width: 100%;
+      max-width: 355px;
+      display: inline-block;
+    }
+  }
+
+  .containerDescription {
+    width: 55%;
+    min-height: 360px;
+    height: auto;
+    // background-color: #1E1E20;
+    float: right;
+
+    .title {
+      font-size: 28px;
+      color: var(--white);
+    }
+
+    .containerStar {
+      width: 100%;
+      margin-top: 10px;
+
+      .icon {
+        color: var(--yellow-300);
+        margin-right: 5px;
+      }
+    }
+
+    .price {
+      width: 100%;
+      margin-top: 30px;
+      font-size: 28px;
+      font-weight: 500;
+      color: var(--yellow-300);
+    }
+    .price2 {
+      width: 100%;
+      color: var(--white);
+      font-size: 14px;
+      margin-top: 4px;
+    }
+
+    .addToCart {
+      width: 200px;
+      height: 44px;
+      border: 4px solid var(--yellow-300);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+      background-color: transparent;
+      cursor: pointer;
+      margin-top: 18px;
+      transition: all .2s;
+
+      &:hover {
+        background-color: var(--yellow-300);
+        color: var(--black);
+        border-color: transparent;
+      }
+    }
+
+    .titleDesc {
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--white);
+      margin-top: 40px;
+    }
+
+    .textDesc {
+      width: 100%;
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--white);
+      line-height: 18px;
+      margin-top: 15px;
+      text-align: justify;
+    }
+  }
+
+  @media (max-width: 770px) {
+    .containerImage, .containerDescription {
+      width: 100%;
+      margin-bottom: 30px;
+    }
+  }
+}
