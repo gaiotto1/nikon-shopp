@@ -1,0 +1,101 @@
+.bannerContainer {
+  width: 100%;
+  margin-top: 70px;
+}
+
+.bannerContent {
+  max-width: 840px;
+  padding: 0 20px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  img {
+    width: 100%;
+    max-width: 346px;
+    height: auto;
+  }
+
+  .contentInfo {
+    max-width: 371px;
+    padding: 0px 0px;
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .title {
+      width: 100%;
+      color: var(--white);
+      font-size: 50px;
+      font-weight: 500;
+      margin-bottom: 7px;
+    }
+
+    .subtitle {
+      width: 100%;
+      color: var(--white);
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .text {
+      width: 100%;
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 18px;
+    }
+
+    .button {
+      width: 136px;
+      height: 40px;
+    }
+
+    .price {
+      border: 2px solid var(--white);
+      border-radius: 4px;
+      background-color: transparent;
+      margin-top: 22px;
+      margin-right: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--white);
+    }
+
+    .addButton {
+      border: 2px solid var(--yellow-300);
+      border-radius: 4px;
+      background-color: var(--yellow-300);
+      margin-top: 22px;
+      cursor: pointer;
+      transition: opacity .2s;
+
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--black);
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    @media (max-width: 760px) {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    @media (max-width: 300px) {
+      .price {
+        margin-right: 0px;
+      }
+    }
+  }
+}
