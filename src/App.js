@@ -3,15 +3,17 @@ import './styles/global.module.scss';
 import { BrowserRouter } from 'react-router-dom';
 
 import { Header } from './components/Header';
+import { Footer } from './components/Footer';
 
 import Routes from './routes';
 
 export function App() {
   return (
     <>
-      <Header />
       <BrowserRouter>
+        <Header />
         <Routes />
+        <Footer />
       </BrowserRouter>
     </>
   );

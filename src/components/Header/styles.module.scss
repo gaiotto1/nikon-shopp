@@ -1,6 +1,6 @@
 .headerContainer {
     height: 5rem;
-    border-bottom: 1px solid var(--gray-800);
+    background-color: #424556;
 }
 
 .headerContent {
@@ -8,39 +8,51 @@
     height: 5rem;
     margin: 0 auto;
     padding: 0 2rem;
-
     display: flex;
-    align-items: center;
+    justify-content: space-between;
 
-    img {
-        width: 65px;
-        height: 56px;
+    .link {
+      width: 70px;
+      height: 5rem;
+      display: flex;
+      align-items: center;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
     }
 
-    nav {
-        margin-left: 5rem;
-        height: 5rem;
+    .containerInfosCart {
+      width: 100px;
+      height: 5rem;
+      display: flex;
+      align-items: center;
 
-        a {
-            display: inline-block;
-            position: relative;
-            padding: 0 0.5rem;
-            line-height: 5rem;
-            color: var(--white);
-            transition: color .2s;
+      .linkCart {
+        text-align: right;
+        color: #FFF;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        transition: opacity .2s;
 
-            & + a {
-                margin-left: 2rem;
-            }
+        div {
+          text-align: right;
+          margin-right: 20px;
 
-            &:hover {
-                color: var(--yellow-500);
-            }
+          strong {
+            display: block;
+          }
 
-            &.active {
-                color: var(--yellow-500);
-                font-weight: bold;
-            }
+          span {
+            font-size: 12px;
+          }
         }
+
+        &:hover {
+          opacity: 0.8
+        }
+      }
     }
 }
