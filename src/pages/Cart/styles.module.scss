@@ -71,6 +71,11 @@
         align-items: center;
         justify-content: center;
         height: 30px;
+        margin-top: 10px;
+
+        label {
+          margin-right: 5px;
+        }
 
         button {
           padding: 6px;
@@ -90,6 +95,7 @@
       .containerTrash {
         height: 30px;
         cursor: pointer;
+        margin-top: 10px;
       }
     }
 

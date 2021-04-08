@@ -87,6 +87,19 @@
       }
     }
 
+    .disabledButton {
+      border: 2px solid var(--yellow-300);
+      border-radius: 4px;
+      background-color: var(--yellow-300);
+      opacity: 0.5;
+      margin-top: 22px;
+      transition: opacity .2s;
+
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--black);
+    }
+
     @media (max-width: 770px) {
       width: 100%;
       max-width: 100%;

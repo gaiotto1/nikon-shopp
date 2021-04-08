@@ -1,4 +1,9 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import * as CartAction from '../../store/modules/cart/actions';
+import * as ProductsAction from '../../store/modules/products/actions';
+
+import { toast } from 'react-toastify';
 
 import { withSize } from 'react-sizeme';
 import SwiperCore, { Navigation, Pagination } from 'swiper';
@@ -10,7 +15,9 @@ import camera from '../../assets/images/img-carousel.png';
 
 SwiperCore.use([Navigation, Pagination]);
 
-function CarouselHome({ size, produtos }) {
+function CarouselHome({ size }) {
+  const dispatch = useDispatch();
+  const products = useSelector(state => state.products.products);
 
   function resizeCarousel () {
     if (size.width > 770) {
@@ -20,6 +27,19 @@ function CarouselHome({ size, produtos }) {
     } else if (size.width <= 700) {
       return 2;
     }
+  }
+
+  function addProduct (index, item) {
+    console.log('index', index)
+    let newItem = {
+      ...item,
+      id: index,
+      qtd: 1,
+    }
+    dispatch(CartAction.addToCart(newItem));
+    dispatch(ProductsAction.updateStock(newItem));
+
+    toast.success('Produto adicionado ao carrinho');
   }
 
   return (
@@ -32,17 +52,26 @@ function CarouselHome({ size, produtos }) {
           slidesPerView={resizeCarousel()}
           pagination={{ clickable: true }}
           navigation={{ nextEl: '.next', prevEl: '.prev' }}
+          onBeforeInit={() => {console.log('okkkk')}}
         >
-          {produtos.map((item) => {
+          {products.map((item, index) => {
             return (
               <SwiperSlide>
                 <div className={styles.card}>
                   <div className={styles.contentCard}>
                     <img src={camera} alt="nikon-camera"/>
-                    <p>{item.text1}</p>
-                    <h1>{item.text2}</h1>
-                    <h2>{item.price}</h2>
-                    <button type="button" className={styles.addButton}>Add to cart</button>
+                    <p>{item.name}</p>
+                    <h1>{item.summary}</h1>
+                    <h2>{item.price.formattedValue}</h2>
+                    {item.stock.stockLevel > 0 ? (
+                      <button type="button" className={styles.addButton} onClick={() => {addProduct(index, item)}}>
+                      Add to cart
+                    </button>
+                    ) : (
+                      <button type="button" disabled={true} className={styles.addButtonDisabled}>
+                      Out of Stock
+                    </button>
+                    )}
                   </div>
                 </div>
               </SwiperSlide>
