@@ -1,5 +1,5 @@
 import styles from './styles.module.scss';
-import img from '../../assets/images/camera-banner.png'
+import img from '../../assets/images/img-carousel.png'
 
 export function BannerHome({ infos }) {
   return (
