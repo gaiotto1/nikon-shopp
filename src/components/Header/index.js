@@ -11,7 +11,9 @@ export function Header() {
   const cart = useSelector(state => state.cart.cart);
 
   return (
-    <header className={styles.headerContainer}>
+    <>
+      <div className={styles.space}></div>
+      <header className={styles.headerContainer}>
       <div className={styles.headerContent}>
         <Link to="/" className={styles.link}>
           <img src={logo} alt="logo"/>
@@ -27,5 +29,6 @@ export function Header() {
         </div>
       </div>
     </header>
+    </>
   )
 };
