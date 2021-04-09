@@ -53,6 +53,10 @@
     display: flex;
     align-items: center;
 
+    a {
+      text-decoration: none;
+    }
+
     .contentCard {
       width: 100%;
       margin: auto;

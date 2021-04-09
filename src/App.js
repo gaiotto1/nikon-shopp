@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-import './config/ReactotronConfig';
+import './config/ReactotronConfig'
 
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';

@@ -5,6 +5,8 @@ import * as ProductsAction from '../../store/modules/products/actions';
 
 import { toast } from 'react-toastify';
 
+import { Link } from 'react-router-dom';
+
 import { withSize } from 'react-sizeme';
 import SwiperCore, { Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -44,7 +46,7 @@ function CarouselHome({ size }) {
 
   return (
     <div className={styles.carouselContainer}>
-      <h2 className={styles.title}>Produtos</h2>
+      <h2 className={styles.title}>Products</h2>
       <div className={styles.carouselContent}>
 
         <Swiper
@@ -52,27 +54,28 @@ function CarouselHome({ size }) {
           slidesPerView={resizeCarousel()}
           pagination={{ clickable: true }}
           navigation={{ nextEl: '.next', prevEl: '.prev' }}
-          onBeforeInit={() => {console.log('okkkk')}}
         >
           {products.map((item, index) => {
             return (
               <SwiperSlide>
                 <div className={styles.card}>
-                  <div className={styles.contentCard}>
-                    <img src={camera} alt="nikon-camera"/>
-                    <p>{item.name}</p>
-                    <h1>{item.summary}</h1>
-                    <h2>{item.price.formattedValue}</h2>
-                    {item.stock.stockLevel > 0 ? (
-                      <button type="button" className={styles.addButton} onClick={() => {addProduct(index, item)}}>
-                      Add to cart
-                    </button>
-                    ) : (
-                      <button type="button" disabled={true} className={styles.addButtonDisabled}>
-                      Out of Stock
-                    </button>
-                    )}
-                  </div>
+                    <div className={styles.contentCard}>
+                      <Link to={`/produto/${item.code}`}>
+                        <img src={camera} alt="nikon-camera"/>
+                        <p>{item.name}</p>
+                        <h1>{item.summary}</h1>
+                        <h2>{item.price.formattedValue}</h2>
+                      </Link>
+                      {item.stock.stockLevel > 0 ? (
+                        <button type="button" className={styles.addButton} onClick={() => {addProduct(index, item)}}>
+                        Add to cart
+                      </button>
+                      ) : (
+                        <button type="button" disabled={true} className={styles.addButtonDisabled}>
+                        Out of Stock
+                      </button>
+                      )}
+                    </div>
                 </div>
               </SwiperSlide>
             );
